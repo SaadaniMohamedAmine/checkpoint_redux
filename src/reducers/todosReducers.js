@@ -5,19 +5,34 @@ import {ADD_TODO,TODO_DONE,TODO_NOT_DONE} from '../actions/types'
 const todos=[
     {
        id:uuidv4() ,
-       title:"work",
-       isDone:false
+       title:"React Hook",
+       isDone:true
     },
     {
         id:uuidv4() ,
-        title:"sleep",
-        isDone:false,
+        title:"React State",
+        isDone:true,
      } ,
      {
         id:uuidv4() ,
-        title:"eat",
+        title:"React js",
         isDone:true,
-     }
+     },
+     {
+      id:uuidv4() ,
+      title:"React redux",
+      isDone:true,
+   },
+   {
+      id:uuidv4() ,
+      title:"API",
+      isDone:false,
+   },
+   {
+      id:uuidv4() ,
+      title:"Node Js",
+      isDone:false,
+   },
 ]
 
 

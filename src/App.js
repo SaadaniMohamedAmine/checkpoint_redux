@@ -1,9 +1,9 @@
 import React,{useState} from 'react' 
 import './App.css' 
-//import {connect} from 'react-redux' ;
 import {useSelector,useDispatch} from 'react-redux'
 import {addTodo,todoDone,todoNotDone} from './actions/todosAction'
 import {v4 as uuidv4} from 'uuid'
+
 
 const App=(s)=> {
   const todos=useSelector((state=>state.todosReducer)) ;
@@ -12,25 +12,26 @@ const App=(s)=> {
   const dispatch=useDispatch(); 
   return (
     <div className="App">
-      <header className="App-header">
+        <div className='todoApp'>
+        <div className='filter'>
         <input type="text" name=""  id="" onChange={(e)=>setInput(e.target.value)}/>
-        <button onClick={()=>dispatch(addTodo({id:uuidv4(),title:input,isDone:false}))}>Add todo</button>
-        <button onClick={()=>dispatch(todoDone())}>todos Done !</button>
-        <button onClick={()=>dispatch(todoNotDone())}>todos not Done !!</button>
+        <button className='btn-test' onClick={()=>dispatch(addTodo({id:uuidv4(),title:input,isDone:false}))}>Add todo</button>
+        </div>
+      <div className="list">
       {todos.map(todo=>(
         <div className="todo">
           <h4>{todo.title}</h4>
-          <button>Delete</button>
+          <button className="btn">Delete</button>
         </div>
       ))}
-      </header>
+      </div>
+      <div className="filter">
+      <button className='btn-test'onClick={()=>dispatch(todoDone())}>todos Done !</button>
+        <button className='btn-test' onClick={()=>dispatch(todoNotDone())}>todos not Done !!</button>
+      </div>
+        </div>
     </div>
   )
 }
-/*const mapStateToProps=(state)=>{
-  return  {
-    todos:state.todosReducer ,
-  }
-}
-export default connect(mapStateToProps)(App);*/
+
 export default App ;

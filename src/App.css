@@ -1,5 +1,7 @@
+
 .App {
   text-align: center;
+  min-height:100vh;
 }
 
 .App-logo {
@@ -13,7 +15,7 @@
   }
 }
 
-.App-header {
+/*.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,7 +24,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+}*/
 
 .App-link {
   color: #61dafb;
@@ -37,3 +39,62 @@
   }
 }
 
+.todo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:300px;
+  border-bottom:3px solid #ccc;
+  margin:5px auto;
+  padding:5px;
+  color: #fff;
+  font-size: 1.25rem;
+  text-shadow: 3px 4px 10px #aaa;
+
+}
+.btn {
+  width:75px;
+  height:40px;
+  align-items: center;
+  margin-top:8px;
+  border-radius: 10px;
+  outline:none;
+  background:transparent;
+  border:2px solid #fff;
+  color:white;
+  font-size:.75rem;
+}
+.list {
+   border:2px solid #aaa;
+   width:50%;
+   margin:20px auto;
+   background:rgba(10,10,10,0.7);
+   box-shadow: 3px 4px 7px #aaa;
+}
+.filter {
+  border:2px solid #aaa;
+   width:50%;
+   height:50px;
+   margin:0px auto;
+   background:rgba(10,10,10,0.7);
+   box-shadow: 3px 4px 7px #aaa;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+.btn-test {
+  height: 30px;
+  max-resolution: top 9px;
+  background:transparent;
+  border:2px solid #fff;
+  color:white;
+  font-size:.75rem;
+  border-radius: 10px;
+}
+
+.todoApp {
+ 
+  min-height: 100vh;
+ background:rgba(0,170,170,0.9);
+ 
+}
