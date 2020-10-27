@@ -1,13 +1,13 @@
 import React,{useState} from 'react' 
 import './App.css' 
 import {useSelector,useDispatch} from 'react-redux'
-import {addTodo,isDone,notDone} from './actions/todosAction'
+import {addTodo,allTodo,isDone,notDone} from './actions/todosAction'
 import {v4 as uuidv4} from 'uuid'
 
 
 const App=(s)=> {
   const todos=useSelector((state=>state.todosReducer)) ;
-  const [input,setInput]=useState("");
+  const [input,setInput]=useState("new Todo");
   //const [inout1,setInput1]=useState("");
   const dispatch=useDispatch(); 
   return (
@@ -15,7 +15,7 @@ const App=(s)=> {
         <div className='todoApp'>
         <div className='filter'>
         <input type="text" name=""  id="" onChange={(e)=>setInput(e.target.value)}/>
-        <button className='btn-test' onClick={()=>dispatch(addTodo({id:uuidv4(),title:input,isDone:false}))}>Add todo</button>
+        <button className='btn-test' onClick={()=>dispatch(addTodo({id:uuidv4(),title:input,etat:'notDone'}))}>Add todo</button>
         </div>
       <div className="list">
       {
@@ -37,6 +37,7 @@ const App=(s)=> {
       <div className="filter">
       <button className='btn-test' onClick={()=>dispatch(isDone())}>todos Done !</button>
         <button className='btn-test' onClick={()=>dispatch(notDone())}>todos not Done !!</button>
+        <button className='btn-test' onClick={()=>dispatch(allTodo())}>Remover filter</button> 
       </div>
         </div>
     </div>

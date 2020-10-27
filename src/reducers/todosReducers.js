@@ -1,5 +1,5 @@
 import {v4 as uuidv4} from 'uuid'
-import {ADD_TODO,TODO_DONE,TODO_NOT_DONE} from '../actions/types'
+import {ADD_TODO,TODO_DONE,TODO_NOT_DONE,ALL_TODO} from '../actions/types'
 
 
 const data={
@@ -45,8 +45,10 @@ const data={
         return  {...state , todos : [...state.todos,action.payload]} ;
       case TODO_DONE :
          return {...state,filt:"isDone"} ; 
-         case TODO_NOT_DONE:
+      case TODO_NOT_DONE:
             return {...state,filt:"notDone"} ;
+      case ALL_TODO :
+         return {...state,filt:null} ;
         default :return state ;
    }
 }

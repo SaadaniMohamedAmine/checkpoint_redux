@@ -1,4 +1,4 @@
-import {ADD_TODO,TODO_DONE,TODO_NOT_DONE} from './types.js'
+import {ADD_TODO,TODO_DONE,TODO_NOT_DONE,ALL_TODO} from './types.js'
 export const addTodo=(newTodo)=>{
     return {
         type:ADD_TODO,
@@ -14,5 +14,10 @@ export const isDone=()=>{
 export const notDone=()=>{
     return {
         type:TODO_NOT_DONE,
+    }
+}
+export const allTodo=()=> {
+    return {
+        type:ALL_TODO ,
     }
 }
