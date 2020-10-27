@@ -6,13 +6,12 @@ export const addTodo=(newTodo)=>{
     }
 } 
 
-export const todoDone=(inp)=>{
+export const isDone=()=>{
     return {
-        type:TODO_DONE ,
-        payload:inp,
+        type :TODO_DONE,
     }
 }
-export const todoNotDone=()=>{
+export const notDone=()=>{
     return {
         type:TODO_NOT_DONE,
     }

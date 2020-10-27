@@ -2,48 +2,51 @@ import {v4 as uuidv4} from 'uuid'
 import {ADD_TODO,TODO_DONE,TODO_NOT_DONE} from '../actions/types'
 
 
-const todos=[
+const data={
+    todos:[
     {
        id:uuidv4() ,
        title:"React Hook",
-       isDone:true
+       etat:"isDone"
     },
     {
         id:uuidv4() ,
         title:"React State",
-        isDone:true,
+        etat:'isDone',
      } ,
      {
         id:uuidv4() ,
         title:"React js",
-        isDone:true,
+        etat:"isDone",
      },
      {
       id:uuidv4() ,
       title:"React redux",
-      isDone:true,
+      etat:"notDone",
    },
    {
       id:uuidv4() ,
       title:"API",
-      isDone:false,
+      etat:"notDone",
    },
    {
       id:uuidv4() ,
       title:"Node Js",
-      isDone:false,
+      etat:"notDone",
    },
-]
+],
+   filt:null
+}
 
 
- const todosReducer=(state=todos,action) => {
+ const todosReducer=(state=data,action) => {
    switch(action.type) {
       case ADD_TODO :
-        return  [...state,action.payload] ;
+        return  {...state , todos : [...state.todos,action.payload]} ;
       case TODO_DONE :
-         return state.filter(elt=>elt.isDone==true) ; 
+         return {...state,filt:"isDone"} ; 
          case TODO_NOT_DONE:
-            return state.filter(elt=>elt.isDone==false) ;
+            return {...state,filt:"notDone"} ;
         default :return state ;
    }
 }
