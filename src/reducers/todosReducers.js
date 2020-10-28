@@ -1,5 +1,5 @@
 import {v4 as uuidv4} from 'uuid'
-import {ADD_TODO,TODO_DONE,TODO_NOT_DONE,ALL_TODO} from '../actions/types'
+import {ADD_TODO,TODO_DONE,TODO_NOT_DONE,ALL_TODO,DELETE_TODO,EDIT_TODO, SAVE_TODO} from '../actions/types'
 
 
 const data={
@@ -35,7 +35,8 @@ const data={
       etat:"notDone",
    },
 ],
-   filt:null
+   filt:null ,
+   save:null ,
 }
 
 
@@ -49,7 +50,14 @@ const data={
             return {...state,filt:"notDone"} ;
       case ALL_TODO :
          return {...state,filt:null} ;
-        default :return state ;
+      case DELETE_TODO :
+            return {...state,todos:state.todos.filter(el=>el.id!==action.payload)} ;
+      case SAVE_TODO :
+            return {...state,save : action.payload} ;
+
+      case EDIT_TODO :
+         return {...state,save:null,todos:state.todos.map(el=>el.id===action.payload.id ? action.payload : el)} ;      
+      default :return state ;
    }
 }
 
